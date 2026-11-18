@@ -7,7 +7,7 @@
 # The build stage runs on the BUILD platform and cross-compiles for TARGETARCH,
 # so `docker buildx build --platform linux/amd64,linux/arm64` emulates nothing.
 
-FROM --platform=$BUILDPLATFORM golang:1.25-alpine AS build
+FROM --platform=$BUILDPLATFORM golang:1.26.11-alpine AS build
 WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download
