@@ -1,6 +1,6 @@
 module github.com/ZacxDev/muster-clankmail
 
-go 1.25.0
+go 1.26.11
 
 require (
 	github.com/ZacxDev/clankmail v0.3.1-0.20261103033041-85b8d4394962
