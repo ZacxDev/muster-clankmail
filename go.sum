@@ -1,5 +1,5 @@
-github.com/ZacxDev/clankmail v0.3.1-0.20261103033041-85b8d4394962 h1:Jg4aafxhYOTPYekdlFvALaFBXZ8MWmbYX5/m5qLHr7Y=
-github.com/ZacxDev/clankmail v0.3.1-0.20261103033041-85b8d4394962/go.mod h1:PXRTrtjIl+0fDrxiBoigYIN39OLBR4HdpTiJsKKjwLc=
+github.com/ZacxDev/clankmail v0.3.1 h1:QYoejxXme8poFw6wek3cs94zIeqsMbGa/AXM0iYttZA=
+github.com/ZacxDev/clankmail v0.3.1/go.mod h1:PXRTrtjIl+0fDrxiBoigYIN39OLBR4HdpTiJsKKjwLc=
 github.com/ZacxDev/clankmail/go/hub v0.0.0-20261103033041-85b8d4394962 h1:WO83ozzX+eSKZdzxj1kgv8adyJdF+OfgAbLD0GfSImQ=
 github.com/ZacxDev/clankmail/go/hub v0.0.0-20261103033041-85b8d4394962/go.mod h1:pDzufkApBOtX6eJakzut3XYsLUQXyRfu2mVmVubFJGQ=
 github.com/dustin/go-humanize v1.0.1 h1:GzkhY7T5VNhEkwH0PVJgjz+fX1rhBrR7pRT3mDkpeCY=
