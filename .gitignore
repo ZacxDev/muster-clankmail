@@ -1,0 +1,7 @@
+# Local binary, if built by hand.
+/muster-clankmail
+
+# Local configuration and secrets. Copy .env.example to .env.
+.env
+*.key
+*.token
