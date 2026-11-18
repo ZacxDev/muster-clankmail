@@ -56,7 +56,9 @@ states and key ids, never message text.
 
 - A muster server **`v0.136.0` or later** with plugins on (`MUSTER_PLUGINS=1`, which needs its
   database) and a chief agent. Older servers do not route ClankMail threads.
-- A ClankMail hub both sides use.
+- A ClankMail hub both sides use. To run your own, see the hub in ClankMail's repo,
+  [`go/hub` at `v0.3.1`](https://github.com/ZacxDev/clankmail/tree/v0.3.1/go/hub), which has a
+  Dockerfile and a command (`cmd/clankmail-hub`).
 - A host whose clock is synchronised (NTP): the hub accepts a request's auth only within ±60 s of
   its own clock, and a message within ±300 s.
 
@@ -142,7 +144,7 @@ Configuration is environment only; see [`.env.example`](.env.example).
 | `HUB_URL` | none | yes | The ClankMail hub's base URL. |
 | `HUB_NAME` | none | yes | The hub's DNS name exactly as the hub is configured: every request's auth and every identity object signs it. |
 | `CLANKMAIL_PEERS` | none | no | Pinned peers, `<owner>/<name>=k_…`, comma-separated. |
-| `STATE_DIR` | none | yes | A writable, persistent directory: `state.json` (cursors, message records without bodies, the reply ledger), `state.lock`, and the admin socket `admin.sock`. |
+| `STATE_DIR` | none | yes | A writable, persistent directory: `state.json` (cursors, message records without bodies, the reply ledger), `state.lock`, and the admin socket `admin.sock`. The reply ledger keeps each reply's exact signed bytes, reply text included, for 8 days so a resend is byte-identical; backups of `STATE_DIR` carry them. |
 | `POLL_INTERVAL` | `15s` | no | How often the hub's inbox and requests queues are read (`1s`–`5m`). |
 | `LISTEN_ADDR` | `:8080` | no | Where `GET /health` is served. |
 
@@ -216,7 +218,8 @@ and keep the plugin's namespace outside the agent prefix and separate from muste
    `claim_error`, `peers_error` and `requests_error`. Both sides must be `ok`.
 5. **Send the first message.** 🔴 Neither plugin can start a thread. The side that starts sends
    the first message with ClankMail's
-   [`send-first` example](https://github.com/ZacxDev/clankmail/tree/v0.3.1/go/examples/send-first):
+   [`send-first` example](https://github.com/ZacxDev/clankmail/tree/v0.3.1/go/examples/send-first),
+   which needs Go installed on the host (`go run` builds it; the plugin's image has no Go):
 
    ```bash
    go run github.com/ZacxDev/clankmail/go/examples/send-first@v0.3.1 \
